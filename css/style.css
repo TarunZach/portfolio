@@ -330,6 +330,7 @@ header {
 
 .intro__img {
   box-shadow: var(--bs);
+  border-radius: 15px;
 }
 
 .section__subtitle--intro {
@@ -362,7 +363,7 @@ header {
     text-align: right;
     position: relative;
     left: -1.5em;
-    width: calc(100% + 1.5em);
+    width: calc(100% + 2.5em);
   }
 }
 
@@ -418,6 +419,7 @@ header {
 
 .about-me__img {
   box-shadow: var(--bs);
+  border-radius: 15px;
 }
 
 @media (min-width: 600px) {
@@ -522,6 +524,20 @@ header {
 
 .marquee-content li:hover {
   transform: translateY(-20px); /* Slide up on hover */
+}
+
+.skillset__info::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background: #eee;
+  z-index: 50;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: height 0.3s ease, top 0.3s ease, left 0.3s ease;
+  opacity: 0;
 }
 
 .skillset__info {

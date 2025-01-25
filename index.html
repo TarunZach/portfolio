@@ -19,7 +19,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+
+  <!-- css -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/spotifyStyles.css">
 </head>
 
 <body>
@@ -64,7 +67,7 @@
           <a href="#about" class="nav__link">About Me</a>
         </li>
         <li class="nav__item">
-          <a href="#skillset" class="nav__link">My Work</a>
+          <a href="#skillset" class="nav__link">My Skillset</a>
         </li>
       </ul>
     </nav>
@@ -78,6 +81,7 @@
     </h1>
     <p class="section__subtitle section__subtitle--intro">Full-Stack Developer</p>
     <img src="img/me-dev.jpg" alt="Picture of me smiling" class="intro__img">
+    <div id="spotify-now-playing"></div>
   </section>
 
   <!-- Services -->
@@ -102,7 +106,7 @@
   <!-- About Me -->
   <section class="about-me" id="about">
     <h2 class="section__title section__title--about">Who I am</h2>
-    <p class="section__subtitle section__subtitle--about">Full Stack Developer currently learning AUTOSAR</p>
+    <p class="section__subtitle section__subtitle--about">Full-Stack Developer currently learning AUTOSAR</p>
 
     <div class="about-me__body">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -150,7 +154,7 @@
         <li data-skill="aws">
           <i class="fab fa-aws"></i>
         </li>
-        <li data-skill="git-alt">
+        <li data-skill="git">
           <i class="fab fa-git-alt"></i>
         </li>
       </ul>
@@ -220,6 +224,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/spotify.js"></script>
 </body>
 
 </html>

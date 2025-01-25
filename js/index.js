@@ -23,29 +23,34 @@ for (let i = 0; i < marqueeElementsDisplayed; i++) {
 }
 
 /* info card - Marquee */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const skillsetInfo = document.querySelector(".skillset__info");
   const marqueeItems = document.querySelectorAll(".marquee-content li");
+
+  // Fetch skills.json
+  const response = await fetch('./storage/skills.json');
+  const skills = await response.json();
 
   marqueeItems.forEach(item => {
     item.addEventListener("mouseenter", (e) => {
       const rect = item.getBoundingClientRect();
 
-      // Set position dynamically near the hovered item
       skillsetInfo.style.opacity = 1;
       skillsetInfo.style.transition = "opacity 0.4s ease";
 
       const skillKey = item.getAttribute("data-skill");
-      skillsetInfo.querySelector(".skillset__content--title").textContent = skillKey.toUpperCase();
-      skillsetInfo.querySelector(".skillset__content--subtitle").textContent = `Learn more about ${skillKey}`;
+      if (skills[skillKey]) {
+        skillsetInfo.querySelector(".skillset__content--title").textContent = skills[skillKey].title;
+        skillsetInfo.querySelector(".skillset__content--subtitle").textContent = skills[skillKey].description;
+      }
     });
 
     item.addEventListener("mouseleave", () => {
       skillsetInfo.style.opacity = 0;
-      skillsetInfo.style.left = `-100%`; // Move off-screen
     });
   });
 });
+
 
 
 /* Timezone */
