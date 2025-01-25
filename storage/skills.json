@@ -1,0 +1,38 @@
+{
+  "html5": {
+    "title": "HTML5",
+    "description": "The standard markup language for creating web pages."
+  },
+  "css3": {
+    "title": "CSS3",
+    "description": "Used for styling and designing responsive websites."
+  },
+  "javascript": {
+    "title": "JavaScript",
+    "description": "A versatile programming language for web development."
+  },
+  "react": {
+    "title": "React",
+    "description": "A JavaScript library for building user interfaces."
+  },
+  "angular": {
+    "title": "Angular",
+    "description": "A TypeScript-based framework for web apps."
+  },
+  "node": {
+    "title": "Node.js",
+    "description": "A runtime for executing JavaScript on the server."
+  },
+  "python": {
+    "title": "Python",
+    "description": "A popular programming language for all purposes."
+  },
+  "aws": {
+    "title": "AWS",
+    "description": "Cloud computing platform by Amazon."
+  },
+  "git": {
+    "title": "Git",
+    "description": "Version control system for source code management."
+  }
+}

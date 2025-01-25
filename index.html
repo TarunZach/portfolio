@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="" UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- icon  -->
+  <link rel="icon" href="svg/favicon.svg" type="image/x-icon" />
   <title>Tarun Zacharias</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -11,12 +13,42 @@
 
 
   <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=iA+Writer+Mono&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <!-- Cursor -->
+  <div class="cursor">
+    <div class="cursor__ball cursor__ball--big ">
+      <svg height="30" width="30">
+        <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+      </svg>
+    </div>
+
+    <div class="cursor__ball cursor__ball--small">
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Navigation -->
   <header>
+    <div class="header-left">
+      <div class="timezone-location">
+        <span class="location" id="location">Berlin</span>, <span class="timezone" id="timezone"></span>
+      </div>
+      <div class="status">
+        <span class="status-dot"></span>
+        <p class="status-text">Open to Work</p>
+      </div>
+    </div>
     <button class="nav-toggle" aria-label="toggle navigation">
       <span class="hamburger"></span>
     </button>
@@ -32,7 +64,7 @@
           <a href="#about" class="nav__link">About Me</a>
         </li>
         <li class="nav__item">
-          <a href="#work" class="nav__link">My Work</a>
+          <a href="#skillset" class="nav__link">My Work</a>
         </li>
       </ul>
     </nav>
@@ -64,7 +96,7 @@
       </div> <!-- /service -->
     </div> <!-- /services -->
 
-    <a href="#work" class="btn">My Work</a>
+    <a href="#skillset" class="btn">My Work</a>
   </section>
 
   <!-- About Me -->
@@ -89,25 +121,50 @@
   </section>
 
   <!-- My Work -->
-  <section class="my-work" id="work">
-    <h2 class="section__title section__title--work">My Work</h2>
-    <p class="section_subtitle section__subtitle--work">A selection of my range of work</p>
+  <section class="my-skillset" id="skillset">
+    <h2 class="section__title section__title--skillset">My <span
+        class="section_subtitle section__subtitle--skillset">Skillset</span></h2>
     <div class="tech-stack-marquee">
       <ul class="marquee-content">
-        <li><i class="fab fa-html5"></i></li>
-        <li><i class="fab fa-css3"></i></li>
-        <li><i class="fab fa-js"></i></li>
-        <li><i class="fab fa-react"></i></li>
-        <li><i class="fab fa-angular"></i></li>
-        <li><i class="fab fa-node"></i></li>
-        <li><i class="fab fa-python"></i></li>
-        <li><i class="fab fa-aws"></i></li>
-        <li><i class="fab fa-git-alt"></i></li>
-        <li><i class="fab fa-github"></i></li>
-        <li><i class="fab fa-free-code-camp"></i></li>
+        <li data-skill="html5">
+          <i class="fab fa-html5"></i>
+        </li>
+        <li data-skill="css3">
+          <i class="fab fa-css3"></i>
+        </li>
+        <li data-skill="js">
+          <i class="fab fa-js"></i>
+        </li>
+        <li data-skill="react">
+          <i class="fab fa-react"></i>
+        </li>
+        <li data-skill="angular">
+          <i class="fab fa-angular"></i>
+        </li>
+        <li data-skill="node">
+          <i class="fab fa-node"></i>
+        </li>
+        <li data-skill="python">
+          <i class="fab fa-python"></i>
+        </li>
+        <li data-skill="aws">
+          <i class="fab fa-aws"></i>
+        </li>
+        <li data-skill="git-alt">
+          <i class="fab fa-git-alt"></i>
+        </li>
       </ul>
     </div>
-    <div class="portfolio">
+
+    <div class="skillset__info">
+      <div class="skillset__info--content">
+        <h3 class="skillset__content--title">Hello there!</h3>
+        <p class="skillset__content--subtitle">Trust yourself and keep going.</p>
+      </div>
+    </div>
+
+    </div>
+    <div class="portfolio" style="display: none;"> <!-- display none -->
       <!-- Portfolio item 01 -->
       <a href="portfolio-item.html" class="portfolio__item">
         <img src="img/portfolio-01.jpg" alt="" class="portfolio__img">
@@ -161,6 +218,7 @@
   </footer>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="js/index.js"></script>
 </body>
 
