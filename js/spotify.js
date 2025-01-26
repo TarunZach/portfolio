@@ -36,9 +36,9 @@ async function getNowPlaying() {
     });
 
     if (response.status > 400) {
-      throw new Error('Unable to Fetch Song');
+      return null;
     } else if (response.status === 204) {
-      throw new Error('Currently Not Playing');
+      return { isOffline: true };
     }
 
     const song = await response.json();
@@ -53,8 +53,7 @@ async function getNowPlaying() {
       artistUrl: song.item.album.artists[0].external_urls.spotify
     };
   } catch (error) {
-    console.error('Error fetching currently playing song: ', error);
-    return error.message.toString();
+    return null;
   }
 }
 
@@ -69,13 +68,25 @@ async function updateNowPlaying() {
     const nowPlaying = await getNowPlaying();
 
     let playerState = '';
-    let albumImageUrl = './images/albumCover.png';
+    let albumImageUrl = '';
     let title = '';
     let artist = '';
     let minutesPlayed = 0, secondsPlayed = 0;
     let minutesTotal = 0, secondsTotal = 0;
+    let songUrl = '';
 
-    if (nowPlaying.title) {
+    if (!nowPlaying) {
+      // Error occurred
+      title = 'Error';
+      artist = 'Fetching song';
+      playerState = 'ERROR';
+    } else if (nowPlaying.isOffline) {
+      // Offline state
+      playerState = 'OFFLINE';
+      title = 'User';
+      artist = 'is Offline';
+    } else {
+      // Song is playing or paused
       playerState = nowPlaying.isPlaying ? 'PLAY' : 'PAUSE';
 
       secondsPlayed = Math.floor(nowPlaying.timePlayed / 1000);
@@ -89,36 +100,34 @@ async function updateNowPlaying() {
       albumImageUrl = nowPlaying.albumImageUrl;
       title = nowPlaying.title;
       artist = nowPlaying.artist;
-    } else if (nowPlaying === 'Currently Not Playing') {
-      playerState = 'OFFLINE';
-      title = 'User is';
-      artist = 'currently Offline';
-    } else {
-      title = 'Failed to';
-      artist = 'fetch song';
+      songUrl = nowPlaying.songUrl;
     }
 
     nowPlayingContainer.innerHTML = `
-      <a href="${playerState === 'PLAY' || playerState === 'PAUSE' ? nowPlaying.songUrl : ''}" style="text-decoration: none; color: black;">
+      <a href="${songUrl}" style="text-decoration: none; color: black;">
         <div class="nowPlayingCard">
-          <div class="nowPlayingImage">
-            <img src="${albumImageUrl}" alt="Album" />
-          </div>
+          ${albumImageUrl ? `
+            <div class="nowPlayingImage">
+              <img src="${albumImageUrl}" alt="Album" />
+            </div>
+          ` : ''}
           <div id="nowPlayingDetails">
             <div class="nowPlayingTitle">${title}</div>
             <div class="nowPlayingArtist">${artist}</div>
-            <div class="nowPlayingTime">${pad(minutesPlayed)}:${pad(secondsPlayed)} / ${pad(minutesTotal)}:${pad(secondsTotal)}</div>
+            ${playerState === 'PLAY' || playerState === 'PAUSE' ? `
+              <div class="nowPlayingTime">${pad(minutesPlayed)}:${pad(secondsPlayed)} / ${pad(minutesTotal)}:${pad(secondsTotal)}</div>
+            ` : ''}
           </div>
           <div class="nowPlayingState">
             ${playerState === 'PLAY' ? '<img src="../img/soundbar.gif" alt="Now Listening" />' :
         playerState === 'PAUSE' ? '<span>⏸️</span>' :
-          playerState === 'OFFLINE' ? '<span>📴</span>' : '<span>❌</span>'}
+          playerState === 'OFFLINE' ? '<span>📴</span>' :
+            playerState === 'ERROR' ? '<span>❌</span>' : ''}
           </div>
         </div>
       </a>
     `;
   } catch (error) {
-    console.error(error);
     nowPlayingContainer.innerHTML = `
       <div class="nowPlayingCard">
         <div class="nowPlayingArtist">Failed to fetch song</div>

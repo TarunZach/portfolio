@@ -9,6 +9,7 @@
 }
 
 .nowPlayingCard {
+  padding: 5px;
   flex-shrink: 0;
   border-radius: 22px;
   border: 2px solid #000;
@@ -52,7 +53,7 @@
 }
 
 .nowPlayingTitle {
-  font-size: 1em;
+  font-size: 0.9em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -12,6 +12,22 @@ navLinks.forEach(link => {
   })
 })
 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  })
+})
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach(element => {
+  observer.observe(element);
+})
+
 /*Marquee*/
 const root = document.documentElement;
 const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
@@ -74,42 +90,6 @@ setInterval(displayTime, 1000);
 
 displayTime();
 
-
-/* cursors */
-const $bigBall = document.querySelector('.cursor__ball--big');
-const $smallBall = document.querySelector('.cursor__ball--small');
-const $hoverables = document.querySelectorAll('.hoverable');
-
-// Listeners
-document.body.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $hoverables.length; i++) {
-  $hoverables[i].addEventListener('mouseenter', onMouseHover);
-  $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-}
-
-function onMouseMove(e) {
-  const x = e.clientX;
-  const y = e.clientY;
-
-  gsap.to($bigBall, { duration: 0.4, x: x - 15, y: y - 15 });
-  gsap.to($smallBall, { duration: 0.1, x: x - 5, y: y - 5 });
-}
-
-
-
-// Hover an element
-function onMouseHover() {
-  gsap.to($bigBall, {
-    duration: 0.3,
-    scale: 4
-  });
-}
-function onMouseHoverOut() {
-  gsap.to($bigBall, {
-    duration: 0.3,
-    scale: 1
-  });
-}
 
 
 
