@@ -73,6 +73,9 @@
         <li class="nav__item">
           <a href="#experience" class="nav__link">My Experiences</a>
         </li>
+        <li class="nav__item">
+          <a href="#projects" class="nav__link">My Projects</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -131,6 +134,10 @@
   <section class="my-skillset" id="skillset">
     <h2 class="section__title section__title--skillset">My <span
         class="section_subtitle section__subtitle--skillset">Skillset</span></h2>
+    <div class="hover-me__icon">
+      <p class="hover-me__text">Hover me</p>
+      <i class="fa fa-arrow-down"></i>
+    </div>
     <div class="tech-stack-marquee">
       <ul class="marquee-content">
         <li data-skill="html5">
@@ -147,6 +154,9 @@
         </li>
         <li data-skill="angular">
           <i class="fab fa-angular"></i>
+        </li>
+        <li data-skill="nextjs">
+          <img src="./svg/nextjs-icon.svg" alt="Next.js Logo" />
         </li>
         <li data-skill="node">
           <i class="fab fa-node"></i>
@@ -209,47 +219,62 @@
 
   <!-- Experience -->
   <section class="my-experience" id="experience">
-    <!-- svg -->
-
-    <!-- svg end -->
     <h2 class="section__title section__title--experience">My <span
-        class="section_subtitle section__subtitle--experience">Experiences</span></h2>
+        class="section_subtitle section__subtitle--experience">Experiences</span>
+    </h2>
+
+
     <div id="panels-container">
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-circle" data-year="2024"></div>
+        <div class="timeline-circle" data-year="2023"></div>
+        <div class="timeline-circle" data-year="2022"></div>
+        <div class="timeline-circle" data-year="2021"></div>
+      </div>
       <article id="panel-1" class="panel full-screen">
         <div class="experience__box">
-          <h2 class="experience__title">Freelance Web Developer</h2>
-          <h3 class="experience__city">Mumbai, India</h3>
+          <h2 class="experience__title">Web Developer</h2>
+          <h3 class="experience__company"><a class="experience__accent" href="#">Freelance</a> | Mumbai, India</h3>
+          <h3 class="experience__duration">May 2024 - October 2024</h3>
           <p class="experience__description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Including versions of Lorem
-            Ipsum.
+            Designed and developed responsive websites for clients, ensuring cross-browser compatibility and improving
+            user engagement. <!-- expand on these -->
           </p>
+          <a href="https://jaise-real-estate.vercel.app/" class="experience__url">A Realtor Website I Built</a>
         </div>
       </article>
-      <article id="panel-2" class="panel full-screen gradient-blue">
+      <article id="panel-2" class="panel full-screen">
         <div class="experience__box">
           <h2 class="experience__title">Full-Stack Web Developer</h2>
-          <h3 class="experience__city">Mumbai, India</h3>
+          <h3 class="experience__company"><a class="experience__accent" href="https://iiclab.com/">Ink In Caps</a> |
+            Mumbai, India</h3>
+          <h3 class="experience__duration">July 2023 - December 2023</h3>
           <p class="experience__description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Including versions of Lorem
-            Ipsum.
+            Developed 15+ reusable UI components using Next.js and optimized page load times by 40% through efficient
+            state management.
           </p>
 
         </div>
       </article>
-      <article id="panel-3" class="panel full-screen gradient-green">
+      <article id="panel-3" class="panel full-screen">
         <div class="experience__box">
           <h2 class="experience__title">Frontend Web Developer</h2>
-          <h3 class="experience__city">Mumbai, India</h3>
+          <h3 class="experience__company"><a class="experience__accent" href="https://www.tataelxsi.com/">Tata Elxsi</a>
+            | Bangalore, India</h3>
+          <h3 class="experience__duration">April 2022 - July 2022</h3>
           <p class="experience__description">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Including versions of Lorem
             Ipsum.
           </p>
         </div>
       </article>
-      <article id="panel-4" class="panel full-screen gradient-blue">
+      <article id="panel-4" class="panel full-screen">
         <div class="experience__box">
           <h2 class="experience__title">Frontend Web Developer</h2>
-          <h3 class="experience__city">Mumbai, India</h3>
+          <h3 class="experience__company"><a class="experience__accent" href="https://www.slco.tech/">SL
+              Consulting</a> | Mumbai, India</h3>
+          <h3 class="experience__duration">December 2021 - April 2022</h3>
           <p class="experience__description">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Including versions of Lorem
             Ipsum.
@@ -260,6 +285,66 @@
         </div>
       </article>
     </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="my-projects" id="projects">
+    <h2 class="section__title section__title--projects">My <span
+        class="section_subtitle section__subtitle--projects">Projects</span>
+    </h2>
+    <ul class="project__stack">
+      <li class="project__card" id="card-1">
+        <div class="card-content">
+          <div>
+            <h2>Card One</h2>
+            <p>This is the content of card one. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <figure>
+            <img src="https://assets.codepen.io/210284/flower-9.jpg" alt="card-one">
+          </figure>
+        </div>
+      </li>
+
+      <li class="project__card" id="card-2">
+        <div class="card-content">
+          <div>
+            <h2>Card Two</h2>
+            <p>This is the content of card two. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <figure>
+            <img src="https://assets.codepen.io/210284/flower-8.jpg" alt="card two">
+          </figure>
+        </div>
+      </li>
+
+      <li class="project__card" id="card-3">
+        <div class="card-content">
+          <div>
+            <h2>Card Three</h2>
+            <p>This is the content of card three. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <figure>
+            <img src="https://assets.codepen.io/210284/flower-7.jpg" alt="card three">
+          </figure>
+        </div>
+      </li>
+
+      <li class="project__card" id="card-4">
+        <div class="card-content">
+          <div>
+            <h2>Card Four</h2>
+            <p>This is the content of card four. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <figure>
+            <img src="https://assets.codepen.io/210284/flower-6.jpg" alt="card four">
+          </figure>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="my-resume">
+
   </section>
 
   <!-- Footer -->

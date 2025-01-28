@@ -1,38 +1,42 @@
 {
   "html5": {
     "title": "HTML5",
-    "description": "The standard markup language for creating web pages."
+    "description": "Pretty much the base for every website I suppose."
   },
   "css3": {
     "title": "CSS3",
-    "description": "Used for styling and designing responsive websites."
+    "description": "I usually end up using Bootstrap or Tailwind but I enjoy designing parts of my website manually too."
   },
   "js": {
     "title": "JavaScript",
-    "description": "A versatile programming language for web development."
+    "description": "Utilized JavaScript for interactive web applications, including real-time tools and custom scripts for file processing."
   },
   "react": {
     "title": "React",
-    "description": "A JavaScript library for building user interfaces."
+    "description": "My most preferred framework for building front-end websites with."
   },
   "angular": {
     "title": "Angular",
-    "description": "A TypeScript-based framework for web apps."
+    "description": "I do not usually end up using Angular but it has it's uses."
+  },
+  "nextjs": {
+    "title": "Next.js",
+    "description": "Designed 15+ reusable UI components with Next.js during my Internships and currently my favourite framework."
   },
   "node": {
     "title": "Node.js",
-    "description": "A runtime for executing JavaScript on the server."
+    "description": "Created file conversion tools and back-end pipelines for metaverse asset processing, managing 50+ Excel files efficiently."
   },
   "python": {
     "title": "Python",
-    "description": "A popular programming language for all purposes."
+    "description": "Led the development of a comprehensive password analysis tool and implemented security solutions like Facial Recognition systems."
   },
   "aws": {
     "title": "AWS",
-    "description": "Cloud computing platform by Amazon."
+    "description": "Explored AWS for cloud computing projects and hosting scalable web applications."
   },
   "git": {
     "title": "Git",
-    "description": "Version control system for source code management."
+    "description": "Managed version control for team projects and ensured streamlined collaboration across repositories."
   }
 }

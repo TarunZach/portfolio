@@ -1,47 +1,67 @@
 /* Horizontal Scroll */
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-/* Main navigation */
-let panelsSection = document.querySelector("#panels"),
-  panelsContainer = document.querySelector("#panels-container"),
-  tween;
-document.querySelectorAll(".anchor").forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    let targetElem = document.querySelector(e.target.getAttribute("href")),
-      y = targetElem;
-    if (targetElem && panelsContainer.isSameNode(targetElem.parentElement)) {
-      let totalScroll = tween.scrollTrigger.end - tween.scrollTrigger.start,
-        totalMovement = (panels.length - 1) * targetElem.offsetWidth;
-      y = Math.round(tween.scrollTrigger.start + (targetElem.offsetLeft / totalMovement) * totalScroll);
-    }
-    gsap.to(window, {
-      scrollTo: {
-        y: y,
-        autoKill: false
+document.addEventListener("DOMContentLoaded", () => {
+  const timelineLine = document.querySelector(".timeline-line");
+  const timelineCircles = document.querySelectorAll(".timeline-circle");
+  const panelsContainer = document.querySelector("#panels-container");
+  const panels = gsap.utils.toArray("#panels-container .panel");
+
+  const totalWidth = panels.length * window.innerWidth;
+
+  const pinTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: panelsContainer,
+      pin: true,
+      start: "top top",
+      end: () => `+=${totalWidth}`,
+      scrub: 1,
+      snap: {
+        snapTo: 1 / (panels.length - 1),
+        duration: { min: 0.2, max: 0.5 },
+        ease: "power1.inOut"
       },
-      duration: 1
-    });
+      anticipatePin: 1,
+      pinSpacing: true,
+      onUpdate: (self) => {
+        // Calculate progress and update line width
+        const progress = Math.min(1, Math.max(0, self.progress));
+        gsap.to(timelineLine, {
+          width: `${progress * 100}%`,
+          duration: 0.1,
+          ease: "none"
+        });
+
+        // Update circle states
+        timelineCircles.forEach((circle, index) => {
+          const circleProgress = index / (timelineCircles.length - 1);
+          if (progress >= circleProgress) {
+            gsap.to(circle, {
+              backgroundColor: "#16e0bd",
+              duration: 0.3,
+              ease: "power2.inOut"
+            });
+          } else {
+            gsap.to(circle, {
+              backgroundColor: "#ddd",
+              duration: 0.3,
+              ease: "power2.inOut"
+            });
+          }
+        });
+      }
+    }
   });
-});
 
-/* Panels */
-const panels = gsap.utils.toArray("#panels-container .panel");
+  pinTl.to(panels, {
+    xPercent: -100 * (panels.length - 1),
+    ease: "none"
+  });
 
-// Ensure total scroll height matches panel count
-const totalWidth = panels.length * window.innerWidth;
-
-gsap.to(panels, {
-  xPercent: -100 * (panels.length - 1),
-  ease: "none",
-  scrollTrigger: {
-    trigger: panelsContainer,
-    pin: true,
-    start: "top top",
-    end: () => `+=${totalWidth}`,
-    scrub: 1,
-    snap: 1 / (panels.length - 1)
-  }
+  // Initial setup
+  gsap.set(panelsContainer, { opacity: 1 });
+  gsap.set(timelineLine, { width: 0 });
+  gsap.set(timelineCircles[0], { backgroundColor: "#16e0bd" }); // First circle starts active
 });
 
 /* cursors */

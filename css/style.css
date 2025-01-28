@@ -39,6 +39,13 @@
     var(--marquee-width) / var(--marquee-elements-displayed)
   );
   --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+
+  /*cards */
+  --card-height: 40vw;
+  --card-margin: 4vw;
+  --card-top-offset: 1em;
+  --numcards: 4;
+  --outline-width: 0px;
 }
 
 @media (min-width: 800px) {
@@ -174,14 +181,16 @@ h3 {
 }
 
 .section__subtitle--skillset,
-.section__subtitle--experience {
+.section__subtitle--experience,
+.section__subtitle--projects {
   color: var(--clr-accent);
   margin-bottom: 1em;
   display: block;
   margin: 0.3em auto;
 }
 
-.section__title--experience {
+.section__title--experience,
+.section__title-projects {
   padding: 1em;
 }
 
@@ -467,7 +476,7 @@ header {
     grid-row: 2;
     position: relative;
     left: -2em;
-    width: calc(100% + 4em);
+    width: calc(100% + 3.5em);
     padding-left: 2em;
     padding-right: calc(200px + 4em);
   }
@@ -480,6 +489,14 @@ header {
 }
 
 /* Marquee */
+
+.hover-me__icon {
+  font-size: var(--fs-h3);
+}
+
+.hover-me__text {
+  margin-bottom: 0;
+}
 
 .tech-stack-marquee {
   display: flex;
@@ -515,6 +532,7 @@ header {
   list-style: none;
   height: max-content;
   display: flex;
+  align-items: center;
   animation: scrolling var(--marquee-animation-duration) linear infinite;
 }
 
@@ -575,22 +593,30 @@ header {
 }
 
 .skillset__info--content {
+  max-width: 60%;
   padding: 1em;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #fffaf2;
+  color: var(--clr-dark);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .marquee-content li img {
-  width: 100%;
-  /* height: 100%; */
-  border: 2px solid #eee;
+  max-width: 45%;
+  max-height: 45%;
+  object-fit: contain;
 }
 
 @media (max-width: 600px) {
   html {
     font-size: 12px;
   }
+
+  .skillset__info--content {
+    max-width: 100%;
+  }
+
   :root {
     --marquee-width: 100vw;
     --marquee-height: 16vh;
@@ -606,6 +632,7 @@ header {
 
 .my-skillset {
   text-align: center;
+  padding-bottom: 2em;
 }
 
 /* .portfolio {
@@ -638,6 +665,73 @@ header {
   padding: 0;
 }
 
+.experience__url {
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  color: var(--clr-accent);
+}
+
+.timeline {
+  position: fixed; /* Changed to fixed to stay in viewport */
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw; /* Control the total width of timeline */
+  height: 2px;
+  z-index: 10;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0; /* Start from left edge */
+  transform: translateY(-50%);
+  height: 2px;
+  width: 0;
+  background-color: #16e0bd;
+}
+
+.timeline-circle {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: #ddd;
+  border: 2px solid #16e0bd;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  transition: background-color 0.3s ease;
+}
+
+.timeline-circle:nth-child(2) {
+  left: 0%;
+} /* First circle */
+.timeline-circle:nth-child(3) {
+  left: 33.33%;
+} /* Second circle */
+.timeline-circle:nth-child(4) {
+  left: 66.66%;
+} /* Third circle */
+.timeline-circle:nth-child(5) {
+  left: 100%;
+} /* Fourth circle */
+
+.timeline-circle.active {
+  background-color: #16e0bd;
+}
+
+.timeline-circle[data-year]::after {
+  content: attr(data-year);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #16e0bd;
+  white-space: nowrap;
+}
+
 #panels,
 #panels-container {
   width: 100%;
@@ -645,6 +739,7 @@ header {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
+  position: relative;
 }
 
 #panels-container .panel {
@@ -686,6 +781,13 @@ header {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  padding: 3em;
+}
+
+.experience__accent {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--clr-accent);
 }
 
 /* #panels-container .panel .panels-navigation {
@@ -702,13 +804,113 @@ header {
   margin-right: 1rem;
 } */
 
-/* Gradient backgrounds for visual differentiation */
-.gradient-green {
-  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+/* My Projects */
+.my-projects {
+  text-align: center;
 }
 
-.gradient-blue {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+.project__stack {
+  padding: 3rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--numcards), var(--card-height));
+  gap: var(--card-margin);
+  padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+  margin-bottom: var(--card-margin);
+}
+
+#card-1 {
+  --index: 1;
+}
+
+#card-2 {
+  --index: 2;
+}
+
+#card-3 {
+  --index: 3;
+}
+
+#card-4 {
+  --index: 4;
+}
+
+.project__card {
+  position: sticky;
+  top: 20%;
+  padding-top: calc(var(--index) * var(--card-top-offset));
+}
+
+.card-content {
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+  background: #fffaf2;
+  color: #131212;
+  border-radius: 2rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: "text img";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: stretch;
+  padding: 1.4em;
+}
+
+.card-content > div {
+  grid-area: text;
+  width: 95%;
+  max-width: 800px;
+  place-self: center;
+  text-align: left;
+  display: grid;
+  gap: 1em;
+  place-items: start;
+}
+
+.card-content > figure {
+  grid-area: img;
+  overflow: hidden;
+}
+
+.card-content > figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.4em;
+}
+
+@supports (animation-timeline: works) {
+  @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets: selector(.project__stack) start 1,
+      selector(.project__stack) start 0;
+    start: selector(.project__stack) start 1;
+    end: selector(.project__stack) start 0;
+    time-range: 4s;
+  }
+
+  .project__card {
+    --index0: calc(var(--index) - 1);
+    --reverse-index: calc(var(--numcards) - var(--index0));
+    --reverse-index0: calc(var(--reverse-index) - 1);
+  }
+
+  .card__content {
+    transform-origin: 50% 0%;
+    will-change: transform;
+
+    --duration: calc(var(--reverse-index0) * 1s);
+    --delay: calc(var(--index0) * 1s);
+
+    animation: var(--duration) linear scale var(--delay) forwards;
+    animation-timeline: cards-element-scrolls-in-body;
+  }
+
+  @keyframes scale {
+    to {
+      transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+    }
+  }
 }
 
 /* footer */
