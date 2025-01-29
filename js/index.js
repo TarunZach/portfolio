@@ -14,7 +14,6 @@ navLinks.forEach(link => {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    console.log(entry)
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
     } else {
@@ -67,7 +66,39 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+/* Get in Touch */
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('.my-resume');
+  const windowHeight = window.innerHeight;
 
+  // Function to calculate scroll percentage
+  const calculateScrollPercentage = () => {
+    const rect = section.getBoundingClientRect();
+    const sectionTop = rect.top;
+    const sectionHeight = rect.height;
+
+    // Calculate how far through the section we've scrolled
+    let scrollPercentage = 1 - (sectionTop / (windowHeight * 0.5));
+
+    scrollPercentage = Math.min(Math.max(scrollPercentage, 0), 1);
+
+    // Update CSS variable
+    section.style.setProperty('--scroll-percent', 1 - scrollPercentage);
+  };
+
+  // Initial calculation
+  calculateScrollPercentage();
+
+  // Update on scroll
+  window.addEventListener('scroll', () => {
+    window.requestAnimationFrame(calculateScrollPercentage);
+  });
+
+  window.addEventListener('resize', () => {
+    windowHeight = window.innerHeight;
+    calculateScrollPercentage();
+  });
+});
 
 /* Timezone */
 function displayTime() {

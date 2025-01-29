@@ -41,7 +41,7 @@
   --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
 
   /*cards */
-  --card-height: 40vw;
+  --card-height: 80vh;
   --card-margin: 4vw;
   --card-top-offset: 1em;
   --numcards: 4;
@@ -152,6 +152,10 @@ h2 {
 }
 h3 {
   font-size: var(--fs-h3);
+}
+
+.clr-accent {
+  color: var(--clr-accent);
 }
 
 .section__title {
@@ -397,8 +401,45 @@ header {
 }
 
 /* Services section */
+.services__marquee {
+  position: relative;
+  top: 30%;
+  left: 0;
+  width: 100vw;
+  max-width: 100%;
+  height: 100px;
+  overflow-x: hidden;
+  z-index: -1;
+  opacity: 0.2;
+  white-space: nowrap;
+}
+
+.services__track {
+  display: flex;
+  gap: 2vw;
+  width: 200%;
+  animation: marquee 20s linear infinite;
+}
+
+.services__content {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  color: white;
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 
 .my-services {
+  padding: 0;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -423,6 +464,7 @@ header {
 }
 
 .services {
+  padding: 3em;
   margin-bottom: 4em;
 }
 
@@ -449,6 +491,24 @@ header {
 .about-me {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.about-me__badge {
+  svg {
+    #text {
+      animation: spin 20s linear infinite;
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .about-me__img {
@@ -816,8 +876,6 @@ header {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(var(--numcards), var(--card-height));
   gap: var(--card-margin);
-  padding-bottom: calc(var(--numcards) * var(--card-top-offset));
-  margin-bottom: var(--card-margin);
 }
 
 #card-1 {
@@ -848,12 +906,19 @@ header {
   color: #131212;
   border-radius: 2rem;
   overflow: hidden;
-  display: grid;
-  grid-template-areas: "text img";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  align-items: stretch;
+  display: flex;
   padding: 1.4em;
+}
+
+@media (max-width: 768px) {
+  .project__stack {
+    padding: 1em;
+  }
+  .card-content {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+  }
 }
 
 .card-content > div {
@@ -910,6 +975,47 @@ header {
     to {
       transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
     }
+  }
+}
+
+/* My Resume */
+.my-resume {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.resume__titles {
+  text-align: center;
+  vertical-align: middle;
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.my-resume h1 {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.my-resume h1:nth-child(1) {
+  transform: translateX(calc(var(--scroll-percent, 0) * -80vw));
+}
+
+.my-resume h1:nth-child(3) {
+  transform: translateX(calc(var(--scroll-percent, 0) * 80vw));
+}
+
+.resume__description {
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 40%;
+  padding: 2em;
+  margin-left: auto;
+}
+
+@media (max-width: 600px) {
+  .resume__description {
+    max-width: 100%;
   }
 }
 
