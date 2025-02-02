@@ -249,6 +249,10 @@ strong {
     max-width: 100%;
   }
 
+  .browser__content {
+    padding: 1em;
+  }
+
   .browser__top {
     padding: 0.5em 1.2em;
   }
@@ -265,7 +269,6 @@ strong {
 }
 
 /* Buttons */
-
 .btn {
   display: inline-block;
   padding: 0.5em 2.5em;
@@ -353,13 +356,12 @@ h3 {
 
 .the__funny {
   position: relative;
-  width: 100vw;
-  height: 120vh;
+  width: 100%;
+  height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   overflow: hidden;
-  white-space: nowrap;
 }
 
 .the__funny-text {
@@ -369,9 +371,13 @@ h3 {
   text-transform: uppercase;
   font-weight: var(--fw-reg);
   color: white;
-  position: absolute;
-  right: -3500px;
-  top: 20px;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .the__funny-text {
+    font-size: 8em;
+  }
 }
 
 /* header */
@@ -581,66 +587,15 @@ header {
   }
 }
 
-/* Services section */
-.my-services {
-  padding: 2em;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-@media (max-width: 700px) {
-  .my-services {
-    padding: 5em 1em;
-    height: auto;
-  }
-}
-
-.section__title--services {
-  color: var(--clr-accent);
-  position: relative;
-}
-
-.section__title--services::after {
-  content: "";
-  display: block;
-  width: 2em;
-  height: 1px;
-  margin: 0.5em auto 1em;
-  background: var(--clr-light);
-  opacity: 0.25;
-}
-
-.services {
-  margin-bottom: 4em;
-}
-
-.service {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-@media (min-width: 800px) {
-  .services {
-    display: flex;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .service + .service {
-    margin-left: 2em;
-  }
-}
-
 /* About section */
-
 .about-me {
   display: flex;
   margin: 0 auto;
+}
+
+.about__email {
+  text-decoration: underline;
+  color: var(--clr-highlight);
 }
 
 /* My Work */
@@ -785,7 +740,6 @@ header {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  color: var(--color-just-black);
 }
 
 #panels-container .panel .container {
@@ -817,6 +771,12 @@ header {
   padding: 3em;
 }
 
+.experience__box > h2,
+.experience__box > h3,
+.experience__box > a {
+  font-weight: var(--fw-reg) !important;
+}
+
 .experience__accent {
   text-decoration: none;
   cursor: pointer;
@@ -842,113 +802,32 @@ header {
   text-align: center;
 }
 
-.project__stack {
-  padding: 3rem;
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(var(--numcards), var(--card-height));
-  gap: var(--card-margin);
+.project__sidebar {
+  text-align: start;
+  padding: 2em;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-#card-1 {
-  --index: 1;
-}
-
-#card-2 {
-  --index: 2;
-}
-
-#card-3 {
-  --index: 3;
-}
-
-#card-4 {
-  --index: 4;
-}
-
-.project__card {
-  position: sticky;
-  top: 20%;
-  padding-top: calc(var(--index) * var(--card-top-offset));
-}
-
-.card-content {
-  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
-  background: #fffaf2;
-  color: #131212;
-  border-radius: 2rem;
-  overflow: hidden;
+.project__container {
   display: flex;
-  padding: 1.4em;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2em 1em;
+  gap: 2em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-@media (max-width: 768px) {
-  .project__stack {
-    padding: 1em;
-  }
-  .card-content {
-    flex-direction: column;
-    justify-content: space-around;
-    height: 60vh;
-  }
+.project__details,
+.project__preview {
+  width: 50%;
 }
 
-.card-content > div {
-  grid-area: text;
-  width: 95%;
-  max-width: 800px;
-  place-self: center;
-  text-align: left;
-  display: grid;
-  gap: 1em;
-  place-items: start;
+.project__details {
+  text-align: start;
 }
 
-.card-content > figure {
-  grid-area: img;
-  overflow: hidden;
-}
-
-.card-content > figure > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.4em;
-}
-
-@supports (animation-timeline: works) {
-  @scroll-timeline cards-element-scrolls-in-body {
-    source: selector(body);
-    scroll-offsets: selector(.project__stack) start 1,
-      selector(.project__stack) start 0;
-    start: selector(.project__stack) start 1;
-    end: selector(.project__stack) start 0;
-    time-range: 4s;
-  }
-
-  .project__card {
-    --index0: calc(var(--index) - 1);
-    --reverse-index: calc(var(--numcards) - var(--index0));
-    --reverse-index0: calc(var(--reverse-index) - 1);
-  }
-
-  .card__content {
-    transform-origin: 50% 0%;
-    will-change: transform;
-
-    --duration: calc(var(--reverse-index0) * 1s);
-    --delay: calc(var(--index0) * 1s);
-
-    animation: var(--duration) linear scale var(--delay) forwards;
-    animation-timeline: cards-element-scrolls-in-body;
-  }
-
-  @keyframes scale {
-    to {
-      transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
-    }
-  }
+.project__preview .browser__content {
+  padding: 0;
 }
 
 /* My Resume */

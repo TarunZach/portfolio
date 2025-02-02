@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* vertical scrolling */
-// Select the HTML elements needed for the animation
 const scrollSection = document.querySelectorAll(".scroll-section");
 
 scrollSection.forEach((section) => {

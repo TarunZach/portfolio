@@ -65,19 +65,19 @@
           <a href="#home" class="nav__link">Home</a>
         </li>
         <li class="nav__item">
-          <a href="#services" class="nav__link">My Services</a>
-        </li>
-        <li class="nav__item">
           <a href="#about" class="nav__link">About Me</a>
         </li>
         <li class="nav__item">
-          <a href="#skillset" class="nav__link">My Skills</a>
+          <a href="#skillset" class="nav__link">Skills</a>
         </li>
         <li class="nav__item">
-          <a href="#experience" class="nav__link">My Experiences</a>
+          <a href="#experience" class="nav__link">Experiences</a>
         </li>
         <li class="nav__item">
-          <a href="#projects" class="nav__link">My Projects</a>
+          <a href="#projects" class="nav__link">Projects</a>
+        </li>
+        <li class="nav__item">
+          <a href="#resume" class="nav__link">Resumè</a>
         </li>
       </ul>
     </nav>
@@ -91,42 +91,6 @@
     <p class="section__subtitle section__subtitle--intro">Full-Stack Developer</p>
     <img src="img/me-dev.jpg" alt="Picture of me smiling" class="intro__img">
     <div id="spotify-now-playing"></div>
-  </section>
-
-  <!-- Services -->
-  <section class="my-services hidden" id="services">
-    <div class="browser__container">
-      <div class="browser__top">
-        <div class="browser__dots">
-          <span class="browser__dot"></span>
-          <span class="browser__dot"></span>
-          <span class="browser__dot"></span>
-        </div>
-        <div class="browser__url-box">
-          <a href="#" target="_blank">what-i-do.com</a>
-        </div>
-      </div>
-      <div class="browser__content">
-        <!-- <h2 class="section__title section__title--services">What I do</h2> -->
-        <div class="services">
-          <div class="service">
-            <h3>
-              Design and Development
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-              commodo
-              consequat.
-            </p>
-          </div> <!-- /service -->
-        </div> <!-- /services -->
-
-        <a href="#skillset" class="btn">My Work</a>
-      </div>
-    </div>
-
   </section>
 
   <!-- About Me -->
@@ -146,25 +110,25 @@
         <!-- <p class="section__subtitle section__subtitle--about">Full-Stack Developer currently learning AUTOSAR</p> -->
 
         <div class="about-me__body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+          <p>Hello! welcome to my website. Here you will find information about me and what I can do.
+            Currently pursuing my Masters in Software Engineering in Berlin.
           </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+          <p>I like cars, music, sports, cars, gym, cars, computer hardware and not to forget cars. My end goal is to be
+            able to work on embedded systems for cars which is why during my free time I work out... But once I'm done
+            with that, I usually try and learn languages which would be useful for embedded systems (C,C++). Curiosity
+            about how everything works is usually what drives my interest to work well and learn alongside it. Other
+            things that drive me to work are cars.
           </p>
+          <p>I still lack 'helpful' projects but feel free to <a href="mailto:tarunz.atwork@gmail.com"
+              class="about__email">email</a> me for work (I will do an excellent job) or information about the latest
+            memes.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- My Skillset -->
-  <section class="my-skillset" id="skillset">
+  <section class="my-skillset hidden" id="skillset">
     <!-- Tech Stack -->
     <div class="browser__container">
       <div class="browser__top">
@@ -264,10 +228,6 @@
     </div>
   </section>
 
-  <div class="the__funny">
-    <h1 class="the__funny-text">Overused the fake browser theme</h1>
-  </div>
-
   <!-- Experience -->
   <section class="my-experience" id="experience">
     <h2 class="section__title section__title--experience"><span
@@ -330,58 +290,60 @@
     <h2 class="section__title section__title--projects"><span
         class="section_subtitle section__subtitle--projects">Projects</span>
     </h2>
-    <ul class="project__stack">
-      <li class="project__card" id="card-1">
-        <div class="card-content">
-          <div>
-            <h2>Card One</h2>
-            <p>This is the content of card one. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p class="project__sidebar">Click on the url box for the github repo</p>
+    <div class="project__container"> <!-- pw tool -->
+      <div class="project__details">
+        <h3 class="project__title">Password Cracking and Strength Analysis Tool</h3>
+        <p class="project__description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing electronic. Lorem ipsum dolor
+        </p>
+      </div>
+      <div class="project__preview">
+        <div class="browser__container">
+          <div class="browser__top">
+            <div class="browser__dots">
+              <span class="browser__dot"></span>
+              <span class="browser__dot"></span>
+              <span class="browser__dot"></span>
+            </div>
+            <div class="browser__url-box">
+              <a href="https://github.com/TarunZach/pw-cracking-analysis-tool">pw-cracking-tool.com</a>
+            </div>
           </div>
-          <figure>
-            <img src="https://assets.codepen.io/210284/flower-9.jpg" alt="card-one">
-          </figure>
-        </div>
-      </li>
-
-      <li class="project__card" id="card-2">
-        <div class="card-content">
-          <div>
-            <h2>Card Two</h2>
-            <p>This is the content of card two. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div class="browser__content">
+            <img src="./img/pw-tool.gif" alt="pw-tool">
           </div>
-          <figure>
-            <img src="https://assets.codepen.io/210284/flower-8.jpg" alt="card two">
-          </figure>
         </div>
-      </li>
-
-      <li class="project__card" id="card-3">
-        <div class="card-content">
-          <div>
-            <h2>Card Three</h2>
-            <p>This is the content of card three. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+    <div class="project__container"> <!-- musicgen tool -->
+      <div class="project__details">
+        <h3 class="project__title">MusicGen</h3>
+        <p class="project__description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing electronic. Lorem ipsum dolor
+        </p>
+      </div>
+      <div class="project__preview">
+        <div class="browser__container">
+          <div class="browser__top">
+            <div class="browser__dots">
+              <span class="browser__dot"></span>
+              <span class="browser__dot"></span>
+              <span class="browser__dot"></span>
+            </div>
+            <div class="browser__url-box">
+              <a href="https://github.com/TarunZach/Music-Generation_MusicGen">musicgen-meta.com</a>
+            </div>
           </div>
-          <figure>
-            <img src="https://assets.codepen.io/210284/flower-7.jpg" alt="card three">
-          </figure>
-        </div>
-      </li>
-
-      <li class="project__card" id="card-4">
-        <div class="card-content">
-          <div>
-            <h2>Card Four</h2>
-            <p>This is the content of card four. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div class="browser__content">
+            <img src="./img/music-gen.gif" alt="music-gen">
           </div>
-          <figure>
-            <img src="https://assets.codepen.io/210284/flower-6.jpg" alt="card four">
-          </figure>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </section>
 
-  <section class="my-resume">
+  <section class="my-resume" id="resume">
     <div class="resume__titles">
       <h1>Get</h1>
       <h1>In</h1>

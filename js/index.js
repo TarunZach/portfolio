@@ -40,21 +40,6 @@ document.querySelectorAll(".tech__stack-card").forEach((card) => {
   });
 });
 
-/* the funny */
-let funnyText = document.querySelector('.the__funny-text');
-let funnySection = document.querySelector('.the__funny');
-
-window.addEventListener("scroll", () => {
-  let scrollPosition = window.scrollY - 2500;
-
-  if (scrollPosition >= 0 && scrollPosition <= window.innerHeight) {
-    let moveLeft = -(scrollPosition * 5.5);
-    let moveDown = scrollPosition * 1;
-
-    funnyText.style.transform = `translate(${moveLeft}px, ${moveDown}px)`;
-  }
-});
-
 
 
 /* Get in Touch */
