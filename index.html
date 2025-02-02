@@ -27,6 +27,9 @@
 </head>
 
 <body>
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
   <!-- Cursor -->
   <div class="cursor">
     <div class="cursor__ball cursor__ball--big ">
@@ -92,105 +95,182 @@
 
   <!-- Services -->
   <section class="my-services hidden" id="services">
-    <div class="services__marquee">
-      <div class="services__track">
-        <div class="services__content">Tarun Zacharias • Full-Stack Developer</div>
-        <div class="services__content">Tarun Zacharias • Full-Stack Developer • </div>
+    <div class="browser__container">
+      <div class="browser__top">
+        <div class="browser__dots">
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+        </div>
+        <div class="browser__url-box">
+          <a href="#" target="_blank">what-i-do.com</a>
+        </div>
+      </div>
+      <div class="browser__content">
+        <!-- <h2 class="section__title section__title--services">What I do</h2> -->
+        <div class="services">
+          <div class="service">
+            <h3>
+              Design and Development
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo
+              consequat.
+            </p>
+          </div> <!-- /service -->
+        </div> <!-- /services -->
+
+        <a href="#skillset" class="btn">My Work</a>
       </div>
     </div>
-    <h2 class="section__title section__title--services">What I do</h2>
-    <div class="services">
-      <div class="service">
-        <h3>
-          Design and Development
-        </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-        </p>
-      </div> <!-- /service -->
-    </div> <!-- /services -->
 
-    <a href="#skillset" class="btn">My Work</a>
   </section>
 
   <!-- About Me -->
   <section class="about-me hidden" id="about">
-    <h2 class="section__title section__title--about">Who I am</h2>
-    <p class="section__subtitle section__subtitle--about">Full-Stack Developer currently learning AUTOSAR</p>
+    <div class="browser__container">
+      <div class="browser__top">
+        <div class="browser__dots">
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+        </div>
+        <div class="browser__url-box">
+          <a href="#" target="_blank">about-me.com</a>
+        </div>
+      </div>
+      <div class="browser__content">
+        <!-- <p class="section__subtitle section__subtitle--about">Full-Stack Developer currently learning AUTOSAR</p> -->
 
-    <div class="about-me__body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </p>
-    </div>
-
-    <img src="img/about-me.jpg" alt="A Casual Picture of Me" class="about-me__img">
-  </section>
-
-  <!-- My Work -->
-  <section class="my-skillset" id="skillset">
-    <h2 class="section__title section__title--skillset">My <span
-        class="section_subtitle section__subtitle--skillset">Skillset</span></h2>
-    <div class="hover-me__icon">
-      <p class="hover-me__text">Hover me</p>
-      <i class="fa fa-arrow-down"></i>
-    </div>
-    <div class="tech-stack-marquee">
-      <ul class="marquee-content">
-        <li data-skill="html5">
-          <i class="fab fa-html5"></i>
-        </li>
-        <li data-skill="css3">
-          <i class="fab fa-css3"></i>
-        </li>
-        <li data-skill="js">
-          <i class="fab fa-js"></i>
-        </li>
-        <li data-skill="react">
-          <i class="fab fa-react"></i>
-        </li>
-        <li data-skill="angular">
-          <i class="fab fa-angular"></i>
-        </li>
-        <li data-skill="nextjs">
-          <img src="./svg/nextjs-icon.svg" alt="Next.js Logo" />
-        </li>
-        <li data-skill="node">
-          <i class="fab fa-node"></i>
-        </li>
-        <li data-skill="python">
-          <i class="fab fa-python"></i>
-        </li>
-        <li data-skill="aws">
-          <i class="fab fa-aws"></i>
-        </li>
-        <li data-skill="git">
-          <i class="fab fa-git-alt"></i>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skillset__info">
-      <div class="skillset__info--content">
-        <h3 class="skillset__content--title"></h3>
-        <p class="skillset__content--subtitle"></p>
+        <div class="about-me__body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- My Skillset -->
+  <section class="my-skillset" id="skillset">
+    <!-- Tech Stack -->
+    <div class="browser__container">
+      <div class="browser__top">
+        <div class="browser__dots">
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+        </div>
+        <div class="browser__url-box">
+          <a href="#" target="_blank">tech-stack.com</a>
+        </div>
+      </div>
+      <div class="browser__content">
+        <div class="tech__stack-box">
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/html-bw.svg"
+            data-color="./svg/tech-stack/html-color.svg">
+            <img src="./svg/tech-stack/html-bw.svg" alt="html" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/css-bw.svg"
+            data-color="./svg/tech-stack/css-color.svg">
+            <img src="./svg/tech-stack/css-bw.svg" alt="css" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/sass-bw.svg"
+            data-color="./svg/tech-stack/sass-color.svg">
+            <img src="./svg/tech-stack/sass-bw.svg" alt="sass" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/bootstrap-bw.svg"
+            data-color="./svg/tech-stack/bootstrap-color.svg">
+            <img src="./svg/tech-stack/bootstrap-bw.svg" alt="bootstrap" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/js-bw.svg" data-color="./svg/tech-stack/js-color.svg">
+            <img src="./svg/tech-stack/js-bw.svg" alt="js" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/ts-bw.svg" data-color="./svg/tech-stack/ts-color.svg">
+            <img src="./svg/tech-stack/ts-bw.svg" alt="ts" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/react-bw.svg"
+            data-color="./svg/tech-stack/react-color.svg">
+            <img src="./svg/tech-stack/react-bw.svg" alt="react" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/next-bw.svg"
+            data-color="./svg/tech-stack/next-color.svg">
+            <img src="./svg/tech-stack/next-bw.svg" alt="next" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/electron-bw.svg"
+            data-color="./svg/tech-stack/electron-color.svg">
+            <img src="./svg/tech-stack/electron-bw.svg" alt="electron" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/python-bw.svg"
+            data-color="./svg/tech-stack/python-color.svg">
+            <img src="./svg/tech-stack/python-bw.svg" alt="python" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/node-bw.svg"
+            data-color="./svg/tech-stack/node-color.svg">
+            <img src="./svg/tech-stack/node-bw.svg" alt="node" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Database & Others -->
+    <div class="browser__container">
+      <div class="browser__top">
+        <div class="browser__dots">
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+          <span class="browser__dot"></span>
+        </div>
+        <div class="browser__url-box">
+          <a href="#" target="_blank">database-and-stuff.com</a>
+        </div>
+      </div>
+      <div class="browser__content">
+        <div class="tech__stack-box">
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/git-bw.svg"
+            data-color="./svg/tech-stack/git-color.svg">
+            <img src="./svg/tech-stack/git-bw.svg" alt="git" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/postman-bw.svg"
+            data-color="./svg/tech-stack/postman-color.svg">
+            <img src="./svg/tech-stack/postman-bw.svg" alt="postman" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/aws-bw.svg"
+            data-color="./svg/tech-stack/aws-color.svg">
+            <img src="./svg/tech-stack/aws-bw.svg" alt="aws" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/mongo-bw.svg"
+            data-color="./svg/tech-stack/mongo-color.svg">
+            <img src="./svg/tech-stack/mongo-bw.svg" alt="mongo" />
+          </div>
+          <div class="tech__stack-card" data-bw="./svg/tech-stack/docker-bw.svg"
+            data-color="./svg/tech-stack/docker-color.svg">
+            <img src="./svg/tech-stack/docker-bw.svg" alt="docker" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <div class="the__funny">
+    <h1 class="the__funny-text">Overused the fake browser theme</h1>
+  </div>
 
   <!-- Experience -->
   <section class="my-experience" id="experience">
-    <h2 class="section__title section__title--experience">My <span
+    <h2 class="section__title section__title--experience"><span
         class="section_subtitle section__subtitle--experience">Experiences</span>
     </h2>
 
@@ -208,12 +288,9 @@
           <h2 class="experience__title">Web Developer</h2>
           <h3 class="experience__company"><a class="experience__accent" href="#">Freelance</a> | Mumbai, India</h3>
           <h3 class="experience__duration">May 2024 - October 2024</h3>
-          <p class="experience__description">
-            Designed and developed responsive websites for clients, ensuring cross-browser compatibility and improving
-            user engagement. <!-- expand on these -->
-          </p>
           <a href="https://jaise-real-estate.vercel.app/" class="experience__url">A Realtor Website I Built</a>
         </div>
+
       </article>
       <article id="panel-2" class="panel full-screen">
         <div class="experience__box">
@@ -221,12 +298,8 @@
           <h3 class="experience__company"><a class="experience__accent" href="https://iiclab.com/">Ink In Caps</a> |
             Mumbai, India</h3>
           <h3 class="experience__duration">July 2023 - December 2023</h3>
-          <p class="experience__description">
-            Developed 15+ reusable UI components using Next.js and optimized page load times by 40% through efficient
-            state management.
-          </p>
-
         </div>
+
       </article>
       <article id="panel-3" class="panel full-screen">
         <div class="experience__box">
@@ -234,11 +307,8 @@
           <h3 class="experience__company"><a class="experience__accent" href="https://www.tataelxsi.com/">Tata Elxsi</a>
             | Bangalore, India</h3>
           <h3 class="experience__duration">April 2022 - July 2022</h3>
-          <p class="experience__description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Including versions of Lorem
-            Ipsum.
-          </p>
         </div>
+
       </article>
       <article id="panel-4" class="panel full-screen">
         <div class="experience__box">
@@ -246,21 +316,18 @@
           <h3 class="experience__company"><a class="experience__accent" href="https://www.slco.tech/">SL
               Consulting</a> | Mumbai, India</h3>
           <h3 class="experience__duration">December 2021 - April 2022</h3>
-          <p class="experience__description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Including versions of Lorem
-            Ipsum.
-          </p>
           <!-- <div class="panels-navigation">
             <div class="nav-panel" data-sign="minus"><a href="#panel-3" class="anchor">Prev</a></div>
           </div> -->
         </div>
+
       </article>
     </div>
   </section>
 
   <!-- Projects -->
   <section class="my-projects" id="projects">
-    <h2 class="section__title section__title--projects">My <span
+    <h2 class="section__title section__title--projects"><span
         class="section_subtitle section__subtitle--projects">Projects</span>
     </h2>
     <ul class="project__stack">

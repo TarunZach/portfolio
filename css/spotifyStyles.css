@@ -9,7 +9,7 @@
 }
 
 .nowPlayingCard {
-  padding: 5px;
+  padding: 1em 0.3em;
   flex-shrink: 0;
   border-radius: 22px;
   border: 2px solid #000;

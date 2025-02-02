@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const circleProgress = index / (timelineCircles.length - 1);
           if (progress >= circleProgress) {
             gsap.to(circle, {
-              backgroundColor: "#16e0bd",
+              backgroundColor: "#000",
               duration: 0.3,
               ease: "power2.inOut"
             });
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial setup
   gsap.set(panelsContainer, { opacity: 1 });
   gsap.set(timelineLine, { width: 0 });
-  gsap.set(timelineCircles[0], { backgroundColor: "#16e0bd" }); // First circle starts active
+  gsap.set(timelineCircles[0], { backgroundColor: "#000" }); // First circle starts active
 });
 
 /* vertical scrolling */
