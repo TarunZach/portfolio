@@ -619,7 +619,7 @@ header {
   justify-content: center;
   align-items: center;
   flex: 1 1 calc(33.33% - 2em);
-  max-width: calc(33.33% - 2em);
+  max-width: calc(25% - 2em);
   padding: 0.5em;
   background: rgb(163, 168, 174);
   background: linear-gradient(
@@ -644,7 +644,7 @@ header {
 
   .tech__stack-card {
     flex: 1 1 calc(50% - 2em);
-    max-width: calc(50% - 2em);
+    max-width: calc(35% - 2em);
   }
 }
 
