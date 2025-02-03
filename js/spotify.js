@@ -119,7 +119,7 @@ async function updateNowPlaying() {
             ` : ''}
           </div>
           <div class="nowPlayingState">
-            ${playerState === 'PLAY' ? '<img src="../img/soundbar.gif" alt="Now Listening" />' :
+            ${playerState === 'PLAY' ? '<img src="https://raw.githubusercontent.com/TarunZach/portfolio/main/img/soundbar.gif" alt="Now Listening" />' :
         playerState === 'PAUSE' ? '<span>⏸️</span>' :
           playerState === 'OFFLINE' ? '<span>📴</span>' :
             playerState === 'ERROR' ? '<span>❌</span>' : ''}
