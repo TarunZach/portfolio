@@ -851,6 +851,7 @@ header {
   text-align: center;
   vertical-align: middle;
   gap: 1em;
+  margin-bottom: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
