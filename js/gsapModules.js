@@ -129,18 +129,39 @@ function initScroll(section, items, direction) {
   });
 }
 
-/* cursors */
+/* Detect screen size */
+function isMobile() {
+  return window.innerWidth <= 768; // Adjust breakpoint as needed
+}
+
+/* Hide cursor on mobile */
+function updateCursorVisibility() {
+  const cursorBalls = document.querySelectorAll('.cursor__ball');
+  if (isMobile()) {
+    cursorBalls.forEach(ball => ball.style.display = 'none');
+  } else {
+    cursorBalls.forEach(ball => ball.style.display = 'block');
+  }
+}
+
+/* Cursors */
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
 const $hoverables = document.querySelectorAll('.hoverable');
 
+// Hide cursor initially if on mobile
+updateCursorVisibility();
+
 // Listeners
-document.body.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $hoverables.length; i++) {
-  $hoverables[i].addEventListener('mouseenter', onMouseHover);
-  $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+if (!isMobile()) {
+  document.body.addEventListener('mousemove', onMouseMove);
+  $hoverables.forEach(el => {
+    el.addEventListener('mouseenter', onMouseHover);
+    el.addEventListener('mouseleave', onMouseHoverOut);
+  });
 }
 
+// Cursor movement
 function onMouseMove(e) {
   const x = e.clientX;
   const y = e.clientY;
@@ -149,16 +170,14 @@ function onMouseMove(e) {
   gsap.to($smallBall, { duration: 0.1, x: x - 5, y: y - 5 });
 }
 
-// Hover an element
+// Hover effects
 function onMouseHover() {
-  gsap.to($bigBall, {
-    duration: 0.3,
-    scale: 4
-  });
+  gsap.to($bigBall, { duration: 0.3, scale: 4 });
 }
 function onMouseHoverOut() {
-  gsap.to($bigBall, {
-    duration: 0.3,
-    scale: 1
-  });
+  gsap.to($bigBall, { duration: 0.3, scale: 1 });
 }
+
+// Update visibility on window resize
+window.addEventListener('resize', updateCursorVisibility);
+

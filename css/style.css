@@ -619,7 +619,7 @@ header {
   justify-content: center;
   align-items: center;
   flex: 1 1 calc(33.33% - 2em);
-  max-width: calc(25% - 2em);
+  max-width: calc(20% - 2em);
   padding: 0.5em;
   background: rgb(163, 168, 174);
   background: linear-gradient(
