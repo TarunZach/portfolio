@@ -880,6 +880,7 @@ header {
   display: flex;
   justify-content: center;
   gap: 1em;
+  padding: 2em 1em;
 }
 
 .resume__cards .resume__germany,
