@@ -9,7 +9,7 @@
 }
 
 .nowPlayingCard {
-  padding: 1em 0.3em;
+  padding: 1em 1em;
   flex-shrink: 0;
   border-radius: 22px;
   border: 2px solid #000;
@@ -40,7 +40,7 @@
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
   width: 60px;
   height: 60px;
-  margin: 10px;
+  margin: 10px 0px;
   object-fit: cover;
 }
 
@@ -73,7 +73,7 @@
 .nowPlayingState {
   width: 20%;
   text-align: center;
-  padding: 10px;
+  padding: 10px 0px;
 }
 
 .nowPlayingState img {
