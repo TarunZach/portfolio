@@ -102,6 +102,12 @@ section {
   padding: 5em 2em;
 }
 
+@media (min-width: 1800px) {
+  section {
+    padding: 9em !important;
+  }
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -837,8 +843,18 @@ header {
   text-align: start;
 }
 
+.project__preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .project__preview .browser__content {
   padding: 0;
+}
+
+.project__preview .browser__container {
+  width: max-content;
 }
 
 /* My Resume */
